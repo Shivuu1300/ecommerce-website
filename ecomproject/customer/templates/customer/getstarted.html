@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RRS : Customer-Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'customer\css\getstarted.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="head">
+                <h3>Sign Up</h3>
+                <!--<p>It's free and only takes a minute</p>-->
+            </div>
+            <form method="POST" action="{% url 'customer-getstarted' %}" enctype="multipart/form-data" class="Inputs">
+                <!-- The csrf_token is for protection against Cross Site Request Forgeries 
+                basically to send data in a safer way-->
+                {% csrf_token %}
+                
+                {{ form }}
+
+                <!--  Custome UI Form
+                <label for="first">First Name</label>
+                <input id="first" name="Firstname" value="" />
+
+                <label for="last">Last Name</label>
+                <input id="last" name="Lastname" value="" />
+
+                <label for="email">Email</label>
+                <input id="email" name="email" value="" />
+                
+                <label for="pswd">Password</label>
+                <input id="pswd" name="pswd" value="" />
+                -->
+                <label for="confirm_pswd">Confirm Password</label>
+                <input type="password" id="confirm_pswd" name="confirm_pswd" />  
+                
+                
+               
+                
+                <button type="submit" name="Create Customer Account">Sign Up</button>
+            </form>
+
+            <div class="msgDiv">
+                {% for message in messages %}
+                <h3> {{ message }} </h3>
+                {% endfor %}
+            </div>
+            <div class="footer">
+                <p>By clicking the Signup Button you agree to our
+                    <a href="#">Term & conditons </a>and <a href="#">Prinvacy policy</a></p>
+                <div class="signup" style="color:black"> Already have a account ? <a href="#">Login Here</a></div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>
