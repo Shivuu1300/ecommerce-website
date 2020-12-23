@@ -54,11 +54,14 @@
                     <li><a href="#services" class="page-scroll">Services</a></li>
                     <li><a href="#portfolio" class="page-scroll">Gallery</a></li>
                     <li><a href="#testimonials" class="page-scroll">Testimonials</a></li>
-                    <li><a href="#team" class="page-scroll">Team</a></li>
-                    <li><a href="#contact" class="page-scroll">Contact</a></li>
+                    {% comment %} <li><a href="#team" class="page-scroll">Team</a></li> {% endcomment %}
+                    
+                    <li><a href="{% url 'timeline' %}" class="page-scroll">Timeline</a></li>
                     {% if user.is_authenticated and user.is_staff == False %}
-                    <li style="margin-top:3px;margin-left:55px;margin-right:20px"><div class="loginli"><a href="{% url 'customer-profile' user.id %}" class="logina">{{user}}</a></div></li>
+                    <li style="margin-top:3px;margin-left:55px;margin-right:20px"><div class="loginli"><a href="{% url 'customer-dashboard' user.id %}" class="logina">{{user}}</a></div></li>
+                    <li style="margin-top:3px;"><div class="gsli"><a href="{% url 'customer-dashboard' user.id %}" class="gsa">Post Job</a></div></li>
                     <li style="margin-top:3px;"><div class="gsli"><a href="{% url 'customer-logout' %}" class="gsa">Logout</a></div></li>
+                    
                     {% else %}
                     <li style="margin-top:3px;margin-left:55px;margin-right:20px"><div class="loginli"><a href="{% url 'customer-login' %}" class="logina">Login</a></div></li>
                     <li style="margin-top:3px;"><div class="gsli"><a href="{% url 'customer-getstarted' %}" class="gsa">Get Started</a></div></li>

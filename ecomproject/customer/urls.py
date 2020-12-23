@@ -10,8 +10,11 @@ urlpatterns = [
     path('getstarted/', views.getstarted, name='customer-getstarted'),
     path('login/', views.logIn, name='customer-login'),
     path('logout/', views.logOut, name='customer-logout'),
-    path('user_profile/<int:pk>',views.userProfile, name='customer-profile')
+    path('dashboard/<int:pk>',views.dashboard, name='customer-dashboard'),
+    path('editprofile',views.editProfile, name='editProfile'),
+    path('timeline/',views.timeline, name='timeline'),
 ]
+
 
 
 if settings.DEBUG: 
